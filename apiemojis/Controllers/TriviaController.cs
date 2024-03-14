@@ -1,5 +1,6 @@
 ﻿using apiemojis.Data;
 using apiemojis.Models;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace apiemojis.Controllers
@@ -16,6 +17,7 @@ namespace apiemojis.Controllers
 
         // GET: api/Trivia
         [HttpGet]
+        [EnableCors("MyPolicy")]
         public ActionResult<IEnumerable<Trivia>> GetTrivias()
         {
             return _context.Trivias.ToList();
